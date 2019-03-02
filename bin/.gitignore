@@ -1,11 +1,6 @@
 /BookOfIllusions.class
 /CowTimer.class
-/FortuneTeller.class
-/Jeopardy.class
-/Movie.class
-/NetflixQueue.class
 /Recipes.html
-/SimonSays.class
 /creepy-noise.wav
 /down.jpg
 /extra/
@@ -16,4 +11,11 @@
 /moo.wav
 /right.jpg
 /up.jpg
+/FortuneTeller.class
+/Jeopardy.class
+/Movie.class
 /NastySurprise.class
+/NetflixQueue.class
+/SimonSays.class
+/scary.jpg
+/pup.jpg
