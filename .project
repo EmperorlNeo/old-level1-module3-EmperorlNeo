@@ -14,16 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/pup.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/pup.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/scary.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/scary.jpg</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
