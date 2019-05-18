@@ -14,13 +14,13 @@ public class TypingTutor extends KeyAdapter {
 	JLabel label = new JLabel();
 	static TypingTutor tt;
 	Date timeAtStart = new Date();
-
+	static int correct;
 	public static void main(String[] args) {
 		tt = new TypingTutor();
 		tt.frameStuff();
 		tt.currentLetter = tt.generateRandomLetter();
 		tt.LabelStuff(tt.currentLetter);
-//		tt.showTypingSpeed();
+//		tt.showTypingSpeed(correct);
 	}
 
 	private void frameStuff() {
@@ -50,6 +50,7 @@ public class TypingTutor extends KeyAdapter {
 		if (j == currentLetter) {
 			System.out.println("correct");
 			frame.getContentPane().setBackground(Color.GREEN);
+			correct +=1;
 		} else {
 			frame.getContentPane().setBackground(Color.RED);
 		}
