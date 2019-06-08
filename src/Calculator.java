@@ -54,7 +54,7 @@ public class Calculator implements ActionListener {
 	public void add() {
 		int y = Integer.parseInt(text1.getText());
 		int g = Integer.parseInt(text2.getText());
-		//System.out.println(y + g);
+		System.out.println(y + g);
 	//	int f = y+g;
 	//	panel.add(button1, f);
 	}
@@ -62,7 +62,7 @@ public class Calculator implements ActionListener {
 	public void substract() {
 		int y = Integer.parseInt(text1.getText());
 		int g = Integer.parseInt(text2.getText());
-		//System.out.println(y - g);
+		System.out.println(y - g);
 	//	int f = y-g;
 	//	panel.add(button2, f);
 	}
@@ -70,7 +70,7 @@ public class Calculator implements ActionListener {
 	public void multiply() {
 		int y = Integer.parseInt(text1.getText());
 		int g = Integer.parseInt(text2.getText());
-		//System.out.println(y * g);
+		System.out.println(y * g);
 	//	int f = y*g;
 	//	panel.add(button3, f);
 	}
@@ -78,7 +78,7 @@ public class Calculator implements ActionListener {
 	public void divide() {
 		int y = Integer.parseInt(text1.getText());
 		int g = Integer.parseInt(text2.getText());
-		//System.out.println(y / g);
+		System.out.println(y / g);
 	//	int f = y/g;
 	//	panel.add(button4, f);
 	}
