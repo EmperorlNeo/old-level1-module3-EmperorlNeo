@@ -1,7 +1,10 @@
+import java.applet.AudioClip;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import java.util.Random;
+
+import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -28,6 +31,7 @@ public class WhackAMole implements ActionListener {
 		int r = rand.nextInt(24);
 		drawButtons(r);
 		mole.addActionListener(this);
+		ready();
 		StartDate = new Date();
 	}
 
@@ -68,12 +72,15 @@ public class WhackAMole implements ActionListener {
 			int r = rand.nextInt(24);
 			drawButtons(r);
 			Hits++;
-			if(Hits >= 10) {
+			playSound("Ding.wav");
+			if (Hits >= 10) {
 				endGame(StartDate, Hits);
+				playSound("Cheer.wav");
+				JOptionPane.showMessageDialog(null, "Congrats!");
 				System.exit(0);
 			}
 		}
-		
+
 		else {
 			speak(" no");
 			frame.dispose();
@@ -81,21 +88,32 @@ public class WhackAMole implements ActionListener {
 			int r = rand.nextInt(24);
 			drawButtons(r);
 			Miss++;
-			if(Miss >= 5) {
+			playSound("Wrong.wav");
+			if (Miss >= 5) {
 				JOptionPane.showMessageDialog(null, "You Lost");
+				playSound("Loser.wav");
 				endGame(StartDate, Hits);
 				System.exit(0);
 			}
 		}
 
 	}
+
 	private void endGame(Date timeAtStart, int molesWhacked) {
-	     Date timeAtEnd = new Date();
-	     JOptionPane.showMessageDialog(null, "Your whack rate is "
-	          + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked)
-	          + " moles per second.");
+		Date timeAtEnd = new Date();
+		JOptionPane.showMessageDialog(null, "Your whack rate is "
+				+ ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked) + " moles per second.");
 	}
-	
+
+	private void playSound(String fileName) {
+		AudioClip sound = JApplet.newAudioClip(getClass().getResource(fileName));
+		sound.play();
+	}
+
+	private void ready() {
+		JOptionPane.showInputDialog("Type ''yes'' when you're ready to begin:");
+	}
+
 	void speak(String words) {
 		try {
 			Runtime.getRuntime().exec("say " + words).waitFor();
