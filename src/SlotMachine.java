@@ -49,7 +49,7 @@ public class SlotMachine implements ActionListener {
 		System.out.println("pressed " + ((JButton) e.getSource()).getText() + " button");
 		JButton buttonPressed = (JButton) e.getSource();
 		if (button == buttonPressed) {
-			for (int i = 0; i <= 10; i++) {
+			for (int i = 0; i <= 3; i++) {
 				panel.remove(label1);
 				panel.remove(label2);
 				panel.remove(label3);
