@@ -15,7 +15,9 @@ public class SlotMachine implements ActionListener {
 	JPanel panel = new JPanel();
 	Random rand = new Random();
 	JButton button = new JButton();
-	JLabel label = new JLabel();
+	JLabel label1 = new JLabel();
+	JLabel label2 = new JLabel();
+	JLabel label3 = new JLabel();
 	int r;
 	int s;
 	int w;
@@ -35,8 +37,8 @@ public class SlotMachine implements ActionListener {
 		frame.add(panel);
 		frame.setTitle("SLOT MACHINE");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1536, 600);
-		frame.setLocation(300, 250);
+		frame.setSize(1900, 700);
+		frame.setLocation(0, 0);
 		panel.add(button);
 		button.setText("SPIN");
 		button.addActionListener(this);
@@ -47,82 +49,137 @@ public class SlotMachine implements ActionListener {
 		System.out.println("pressed " + ((JButton) e.getSource()).getText() + " button");
 		JButton buttonPressed = (JButton) e.getSource();
 		if (button == buttonPressed) {
-			showImages();
+			for (int i = 0; i <= 10; i++) {
+				panel.remove(label1);
+				panel.remove(label2);
+				panel.remove(label3);
+				showImages();
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				frame.invalidate();
+			}
 		}
 	}
 
 	public void showImages() {
-		int r = rand.nextInt(5);
+		int r = rand.nextInt(9);
 		System.out.println(r);
 		if (r == 0) {
-			loadImageFromComputer("7.png");
-
+			label1 = loadImageFromComputer("7.png");
 		}
 		if (r == 1) {
-			loadImageFromComputer("Bell.png");
+			label1 = loadImageFromComputer("Bell.png");
 		}
 		if (r == 2) {
-			loadImageFromComputer("Cherry.png");
+			label1 = loadImageFromComputer("Cherry.png");
 		}
 		if (r == 3) {
-			loadImageFromComputer("Grapes.png");
+			label1 = loadImageFromComputer("Grapes.png");
 		}
 		if (r == 4) {
-			loadImageFromComputer("Lemon.png");
+			label1 = loadImageFromComputer("Lemon.png");
 		}
 		if (r == 5) {
-			loadImageFromComputer("Orange.png");
+			label1 = loadImageFromComputer("Orange.png");
 		}
-		int s = rand.nextInt(5);
+		if (r == 6) {
+			label1 = loadImageFromComputer("OneBar.png");
+		}
+		if (r == 7) {
+			label1 = loadImageFromComputer("ThreeBar.png");
+		}
+		if (r == 8) {
+			label1 = loadImageFromComputer("Three7.png");
+		}
+		if (r == 9) {
+			label1 = loadImageFromComputer("Watermelon.png");
+		}
+
+		panel.add(label1);
+		int s = rand.nextInt(9);
 		System.out.println(s);
 		if (s == 0) {
-			loadImageFromComputer("7.png");
+			label2 = loadImageFromComputer("7.png");
 		}
 		if (s == 1) {
-			loadImageFromComputer("Bell.png");
+			label2 = loadImageFromComputer("Bell.png");
 		}
 		if (s == 2) {
-			loadImageFromComputer("Cherry.png");
+			label2 = loadImageFromComputer("Cherry.png");
 		}
 		if (s == 3) {
-			loadImageFromComputer("Grapes.png");
+			label2 = loadImageFromComputer("Grapes.png");
 		}
 		if (s == 4) {
-			loadImageFromComputer("Lemon.png");
+			label2 = loadImageFromComputer("Lemon.png");
 		}
 		if (s == 5) {
-			loadImageFromComputer("Orange.png");
+			label2 = loadImageFromComputer("Orange.png");
 		}
-		int w = rand.nextInt(5);
+		if (s == 6) {
+			label2 = loadImageFromComputer("OneBar.png");
+		}
+		if (s == 7) {
+			label2 = loadImageFromComputer("ThreeBar.png");
+		}
+		if (s == 8) {
+			label2 = loadImageFromComputer("Three7.png");
+		}
+		if (s == 9) {
+			label2 = loadImageFromComputer("Watermelon.png");
+		}
+		panel.add(label2);
+		int w = rand.nextInt(9);
 		System.out.println(w);
 		if (w == 0) {
-			loadImageFromComputer("7.png");
+			label3 = loadImageFromComputer("7.png");
 		}
 		if (w == 1) {
-			loadImageFromComputer("Bell.png");
+			label3 = loadImageFromComputer("Bell.png");
 		}
 		if (w == 2) {
-			loadImageFromComputer("Cherry.png");
+			label3 = loadImageFromComputer("Cherry.png");
 		}
 		if (w == 3) {
-			loadImageFromComputer("Grapes.png");
+			label3 = loadImageFromComputer("Grapes.png");
 		}
 		if (w == 4) {
-			loadImageFromComputer("Lemon.png");
+			label3 = loadImageFromComputer("Lemon.png");
 		}
 		if (w == 5) {
-			loadImageFromComputer("Orange.png");
+			label3 = loadImageFromComputer("Orange.png");
 		}
-		if(r==s && s==w) {
+		if (w == 6) {
+			label3 = loadImageFromComputer("OneBar.png");
+		}
+		if (w == 7) {
+			label3 = loadImageFromComputer("ThreeBar.png");
+		}
+		if (w == 8) {
+			label3 = loadImageFromComputer("Three7.png");
+		}
+		if (w == 9) {
+			label3 = loadImageFromComputer("Watermelon.png");
+		}
+		panel.add(label3);
+		frame.pack();
+		if (r == s && s == w) {
 			JOptionPane.showMessageDialog(null, "YOU WIN");
-			win=+1;
-			System.out.println(win);
+			win = +1;
+			System.out.println("Times Won: " + win);
 		}
 	}
-	
+
 	public JLabel loadImageFromComputer(String fileName) {
 		URL imageURL = getClass().getResource(fileName);
 		Icon icon = new ImageIcon(imageURL);
 		return new JLabel(icon);
 	}
 }
+// TIMER IN ACTION PERFORMED TO UPDATE UI, START TIMER
+// java api timer (look up)
+//fsefgsegh
