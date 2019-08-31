@@ -230,5 +230,3 @@ public class SlotMachine implements ActionListener {
 		return new JLabel(icon);
 	}
 }
-// TIMER IN ACTION PERFORMED TO UPDATE UI, START TIMER
-// java api timer (look up)
